@@ -1,14 +1,3 @@
-
-//if ( navigator.platform.indexOf('Win') != -1 ) {
- // window.document.getElementById("wrapper").setAttribute("class", "windows");
-//} else if ( navigator.platform.indexOf('Mac') != -1 ) {
- // window.document.getElementById("wrapper").setAttribute("class", "mac");
-//}
-
-//var
-
-// functions
-
 var animals = {
 	an1: ["silkworm", "silkworm.jpg"],
 	an2: ["siamang", "siamang.jpg"],
@@ -40,7 +29,8 @@ var isIn=false;
 var hanfImgNum=0;
 var isLetter= false;
 
-function startGame() {
+
+function startRound() {
 	rando= Math.floor(Math.random()*Object.keys(animals).length);
 	selectedAn = Object.entries(animals)[rando][1];
 	selectedWord=selectedAn[0];
@@ -75,7 +65,7 @@ function letterPlace() {
 		} 
 	} 
 	else if(wriongIsIn) {
-		console.log("same letter");
+		console.log("wrong");
 	}
 	else  {
 		if(isLetter) {
@@ -92,13 +82,12 @@ function letterPlace() {
 	} 
 }
 function letterCheck(){
-
-  if (event.keyCode > 64 && event.keyCode <91) {
-  	return isLetter=true;
-  }
-  else{
-  	isLetter=false;
-  }
+	if (event.keyCode > 64 && event.keyCode <91) {
+  		return isLetter=true;
+	}
+	else{
+	  	isLetter=false;
+	}
 }
 function roundEnd() {
 	if (lettersInWord.toString()==dashLetters.toString()) {
@@ -109,7 +98,7 @@ function roundEnd() {
 		numGuess=10;
 		$("hang").attr('src', "assets/images/logo.png");
 		hanfImgNum=0;
-		startGame();
+		startRound()();
 	}
 	else if(numGuess===0) {
 		loss++
@@ -119,10 +108,10 @@ function roundEnd() {
 		playSound("loss");
 		numGuess=10;
 		hanfImgNum=0;
-		startGame();
+		startRound();
 	}
-
 }
+
 function playSound(type){
   var audio = $("<audio>");
   $("#audio_div").find("audio").remove();
@@ -149,7 +138,7 @@ function playSound(type){
   audio.attr("autoplay","true");
 }
 $(document).ready(function() {
-	startGame()
+	startRound()
 	$(document).on("keyup", function(event) {
 		letterKey = (event.key).toLowerCase();
 	  	letterCheck();
