@@ -98,7 +98,7 @@ function roundEnd() {
 		numGuess=10;
 		$("hang").attr('src', "assets/images/logo.png");
 		hanfImgNum=0;
-		startRound()();
+		startRound();
 	}
 	else if(numGuess===0) {
 		loss++
