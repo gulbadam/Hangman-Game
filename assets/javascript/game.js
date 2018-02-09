@@ -110,7 +110,7 @@ function roundEnd() {
 		hanfImgNum=0;
 		startRound();
 	}
-}
+} 
 
 function playSound(type){
   var audio = $("<audio>");
