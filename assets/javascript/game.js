@@ -81,7 +81,7 @@ function letterPlace() {
 		}
 	} 
 }
-function letterCheck(){
+function letterCheck(event){
 	if (event.keyCode > 64 && event.keyCode <91) {
   		return isLetter=true;
 	}
