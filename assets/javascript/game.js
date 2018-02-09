@@ -141,7 +141,7 @@ $(document).ready(function() {
 	startRound()
 	$(document).on("keyup", function(event) {
 		letterKey = (event.key).toLowerCase();
-	  	letterCheck();
+	  	letterCheck(event);
 	  	isIn=lettersInWord.includes(letterKey);
 	  	wriongIsIn=wrongLetters.includes(letterKey);
 	  	letterPlace();
